@@ -2,7 +2,7 @@
 
 Submitted by: **Kateryna Klimanova**
 
-This web app: 
+This web app: Veni Vici is a web application that fetches and displays random art data from an external API.
 
 Time spent: **4** hours spent in total
 
