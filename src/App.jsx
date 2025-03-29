@@ -7,6 +7,14 @@ function App() {
   const [banList, setBanList] = useState([]);
   const [warning, setWarning] = useState('');
 
+  const isValidRecord = (record) => {
+    return record &&
+      record.primaryimageurl &&
+      record.title &&
+      record.dated &&
+      record.objectnumber;
+  };
+
   const isBanned = (record) => {
     const attributes = [record.title, record.dated, record.objectnumber];
     return attributes.some(attr => banList.includes(attr));
@@ -21,7 +29,7 @@ function App() {
         const data = await response.json();
         if (data.records && data.records.length > 0) {
           const record = data.records[0];
-          if (!isBanned(record)) {
+          if (isValidRecord(record) && !isBanned(record)) {
             setArtData(record);
             return;
           }
@@ -38,22 +46,19 @@ function App() {
     if (!value) return;
     setBanList(prev =>
       prev.includes(value)
-        ? prev.filter(item => item !== value)  // Remove if exists
-        : [...prev, value]                     // Add if not present
+        ? prev.filter(item => item !== value)
+        : [...prev, value]
     );
   };
 
   return (
     <div className="wrapper">
-      {/* Main Content Area */}
       <div className="main-content">
         <div className="center-box">
           <h1>Veni Vici!</h1>
           <p>Discover art from your wildest dreams!</p>
           <button onClick={fetchRandomArt}>Discover</button>
-
           {warning && <p className="warning">{warning}</p>}
-
           {artData && (
             <div className="art-container">
               {artData.primaryimageurl && (
@@ -78,8 +83,6 @@ function App() {
           )}
         </div>
       </div>
-
-      {/* Ban List Sidebar */}
       <div className="ban-list-container">
         <h2>Ban List</h2>
         {banList.length === 0 ? (
