@@ -1,0 +1,150 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: calc(100% - 300px);
+  height: 100vh;
+  background-color: #777777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-box {
+  background-color: #222222;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+.center-box h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.center-box p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.center-box button {
+  background-color: #eeeeee;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem;
+  color: #000000;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  transition: background-color 0.3s ease;
+  min-width: 120px;
+}
+
+
+.warning {
+  color: #ff5e5e;
+  margin-bottom: 1rem;
+}
+
+.art-container {
+  margin-top: 1rem;
+}
+
+.art-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.art-attributes p {
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.art-attributes p:hover {
+  color: #dedfdf;
+}
+
+.ban-list-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #222222;
+  color: #fff;
+  padding: 2rem 1rem;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.4);
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.ban-list-container h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.ban-list-container ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.ban-list-container li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.ban-list-container li:hover {
+  color: #ff5555;
+}
+
+.ban-list-instructions {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 1rem;
+}
+
+
+@media (max-width: 768px) {
+  .main-content {
+    width: 100%;
+    padding-bottom: 300px;
+    overflow-y: auto;
+  }
+  
+  .ban-list-container {
+    width: 100%;
+    height: 300px;
+    top: auto;
+    bottom: 0;
+  }
+}
